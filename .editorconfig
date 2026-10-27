@@ -1,0 +1,5 @@
+root = true
+
+# PorterStemmer.cs was provided with the lab and is reused unchanged; it predates nullable reference types.
+[/PorterStemmer.cs]
+dotnet_diagnostic.CS8618.severity = none

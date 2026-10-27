@@ -1,0 +1,14 @@
+# Build artifacts
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+TestResults/
+artifacts/
+
+# Program output (regenerated on every run)
+output/
+
+# Input data (large; not part of the source code)
+Reuters/
