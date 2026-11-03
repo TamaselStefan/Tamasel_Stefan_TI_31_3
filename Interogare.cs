@@ -3,13 +3,14 @@ static class Interogare
 {
     const int NumarRezultate = 10;
 
+    // Metodele folosite. Se pot schimba aici:
+    // normalizare: "Binar", "Logaritmic", "Nominal", "Suma 1"
+    // similaritate: "Euclid", "Manhattan", "Cosinus"
+    const string normalizare = "Nominal";
+    const string similaritate = "Cosinus";
+
     public static void Porneste(List<Articol> articole)
     {
-        string normalizare = Alege("Metoda de normalizare", Normalizare.Metode);
-        string similaritate = Alege("Metoda de similaritate", Similaritate.Metode);
-        if (normalizare == null || similaritate == null)
-            return;
-
         // Pasul 2: normalizam fiecare vector de document separat.
         Dictionary<string, double> idf = Normalizare.CalculeazaIdf(articole);
         var vectori = new List<Dictionary<string, double>>();
@@ -56,25 +57,6 @@ static class Interogare
                 Console.WriteLine($"{loc,3}. {articol.Nume,-10} {valoare,10:F4}   {articol.Eticheta}  {string.Join(" ", articol.Topicuri)}");
                 loc++;
             }
-        }
-    }
-
-    // Afiseaza optiunile numerotate si citeste alegerea utilizatorului.
-    static string Alege(string titlu, string[] optiuni)
-    {
-        Console.WriteLine("\n" + titlu + ":");
-        for (int i = 0; i < optiuni.Length; i++)
-            Console.WriteLine($"  {i + 1}. {optiuni[i]}");
-
-        while (true)
-        {
-            Console.Write($"Alege (1-{optiuni.Length}): ");
-            string linie = Console.ReadLine();
-            if (linie == null)
-                return null;
-
-            if (int.TryParse(linie, out int alegere) && alegere >= 1 && alegere <= optiuni.Length)
-                return optiuni[alegere - 1];
         }
     }
 }

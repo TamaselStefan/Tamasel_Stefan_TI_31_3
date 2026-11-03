@@ -2,8 +2,6 @@
 // Vectorii sunt rari: un cuvant care lipseste are valoarea 0.
 static class Similaritate
 {
-    public static readonly string[] Metode = { "Euclid", "Manhattan", "Cosinus" };
-
     // Pentru Euclid si Manhattan (distante) mai mic = mai asemanator,
     // pentru cosinus mai mare = mai asemanator.
     public static bool MaiMicEsteMaiBine(string metoda) => metoda != "Cosinus";

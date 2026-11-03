@@ -2,8 +2,6 @@
 // n(d, a) = de cate ori apare cuvantul "a" in documentul "d".
 static class Normalizare
 {
-    public static readonly string[] Metode = { "Binar", "Logaritmic", "Nominal", "Suma 1" };
-
     // IDF(a) = log(|D| / |D_a|)
     // |D| = numarul de documente, |D_a| = numarul de documente care contin cuvantul "a".
     public static Dictionary<string, double> CalculeazaIdf(List<Articol> articole)
